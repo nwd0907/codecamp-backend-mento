@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { BoardsModule } from './boards/boards.module';
+import { BoardsModule } from './board/board.module';
 
 @Module({
   imports: [
