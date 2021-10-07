@@ -1,0 +1,19 @@
+version: '3.3'
+
+services: 
+    codecamp_backend:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        volumes: 
+            - ./src:/codecamp_backend/src
+        ports: 
+            - 3000:3000
+    
+    codecamp_mysql: 
+        platform: linux/x86_64
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 'root'
+        ports: 
+            - 3306:3306
