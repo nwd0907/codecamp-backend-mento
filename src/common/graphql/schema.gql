@@ -5,3 +5,7 @@
 type Query {
   fetchBoard: String!
 }
+
+type Mutation {
+  createBoard: String!
+}

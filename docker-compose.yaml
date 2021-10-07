@@ -15,5 +15,7 @@ services:
         image: mysql:latest
         environment:
             MYSQL_ROOT_PASSWORD: 'root'
+        cap_add:
+            - SYS_NICE
         ports: 
             - 3306:3306
