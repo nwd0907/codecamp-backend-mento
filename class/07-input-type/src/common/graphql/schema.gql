@@ -3,11 +3,12 @@
 # ------------------------------------------------------
 
 type Board {
-  id: ID!
+  id: Int!
   title: String!
   contents: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+  deletedAt: DateTime!
 }
 
 """
@@ -20,5 +21,10 @@ type Query {
 }
 
 type Mutation {
-  createBoard: Board!
+  createBoard(createBoardInput: CreateBoardInput!): Board!
+}
+
+input CreateBoardInput {
+  title: String!
+  contents: String!
 }

@@ -11,8 +11,11 @@ export class FetchBoardService {
   ) {}
 
   async fetchBoard(): Promise<Board> {
-    const result = await this.boardRepository.findOne({where: {id: 2}})
+    const result = await this.boardRepository.findOne({where: {id: 3}})
     console.log(result)
+    // this.boardRepository.softDelete({id: 3})
+    // const result = await this.boardRepository.findOne({where: {id: 2}})
+    // console.log(result)
     return result;
   }
 }

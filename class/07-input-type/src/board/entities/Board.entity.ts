@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn } from 'typeorm';
-import { ObjectType,Field, ID } from '@nestjs/graphql';
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, DeleteDateColumn } from 'typeorm';
+import { ObjectType,Field, Int } from '@nestjs/graphql';
 
 @Entity()
 @ObjectType()
 export class Board {
-  @PrimaryGeneratedColumn()
-  @Field(() => ID)
+  @PrimaryGeneratedColumn('increment')
+  @Field(() => Int)
   id: number;
 
   @Column()
@@ -15,4 +15,16 @@ export class Board {
   @Column()
   @Field(() => String)
   contents: string;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  @Field(() => Date)
+  createdAt: Date
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  @Field(() => Date)
+  updatedAt: Date
+
+  @DeleteDateColumn({ type: 'timestamp'})
+  @Field(() => Date)
+  deletedAt: Date
 }
