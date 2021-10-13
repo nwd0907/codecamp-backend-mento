@@ -16,16 +16,9 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  fetchBoard(writer: String!): Board!
+  fetchBoard: Board!
 }
 
 type Mutation {
-  createBoard(createBoardInput: CreateBoardInput!): Board!
-}
-
-input CreateBoardInput {
-  writer: String!
-  password: String!
-  title: String!
-  contents: String!
+  createBoard: Board!
 }

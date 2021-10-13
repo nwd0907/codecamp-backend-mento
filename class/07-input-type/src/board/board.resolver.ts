@@ -1,5 +1,4 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { CreateBoardInput } from './dto/createBoard.input';
 import { Board } from './entities/Board.entity';
 import { CreateBoardService } from './services/mutations/createBoard.service';
 import { FetchBoardService } from './services/queries/fetchBoard.service';
@@ -12,12 +11,12 @@ export class BoardResolver {
   ) {}
 
   @Mutation(() => Board)
-  createBoard(@Args({name: 'createBoardInput', type: () => CreateBoardInput}) createBoardInput: CreateBoardInput): Promise<Board> {
-    return this.createBoardService.createBoard(createBoardInput);
+  createBoard(): Promise<Board> {
+    return this.createBoardService.createBoard();
   }
 
   @Query(() => Board)
-  fetchBoard(@Args({name:'writer', type: () => String}) writer: string){
+  fetchBoard(){
     return this.fetchBoardService.fetchBoard();
   }
 

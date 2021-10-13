@@ -10,11 +10,8 @@ export class CreateBoardService {
     private boardRepository: Repository<Board>,
   ) {}
 
-  async createBoard(createBoardInput): Promise<Board> {
-    console.log(createBoardInput)
-
-    const result = await this.boardRepository.save({ title: createBoardInput.title, contents: createBoardInput.contents })
-    // result = { title: "제목입니다", contents: "내용입니다.", id: 3 }
+  async createBoard(): Promise<Board> {
+    const result = await this.boardRepository.save({ title: "제목입니다", contents: "내용입니다.", id: 3 })
     return result;
   }
 }

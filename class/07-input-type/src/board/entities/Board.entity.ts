@@ -15,13 +15,4 @@ export class Board {
   @Column()
   @Field(() => String)
   contents: string;
-
-  @Field(() => Date)
-  @CreateDateColumn({type: 'timestamp'})
-  createdAt: Date
-
-  @Field(() => Date)
-  @UpdateDateColumn({type: 'timestamp'})
-  updatedAt: Date
-
 }
